@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap");
+* {
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  outline: none;
+  text-decoration: none;
+  font-family: "lato", sans-serif;
+}
+
+body {
+  background: #6849b5 100%;
+  background: linear-gradient(145deg, #6849b5 0%, rgba(22, 28, 46, 0.9416141457) 30%);
+  margin: 50px;
+}
+
+* {
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  outline: none;
+  text-decoration: none;
+  font-family: "lato", sans-serif;
+}
+
+body {
+  background: #6849b5 100%;
+  background: linear-gradient(145deg, #6849b5 0%, rgba(22, 28, 46, 0.9416141457) 30%);
+  margin: 50px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+.header .title h1 {
+  color: #6849b5;
+  border: 1px solid #ffff;
+  border-radius: 50%;
+  background: #ffff;
+  width: 80px;
+  font-size: 1.5rem;
+  padding: 7px;
+  text-align: center;
+}
+.header .navBar {
+  display: flex;
+  justify-content: space-around;
+}
+.header .navBar a {
+  color: #ffff;
+  text-decoration: none;
+  font-size: 1.25rem;
+  margin: 0 2.5rem;
+  padding-top: 5px;
+}
+.header .navBar .nav-active {
+  border-top: 1px solid #ffff;
+}
+.header .navBar button {
+  position: absolute;
+  right: 3rem;
+  color: #ffff;
+  background: #6849b5;
+  border: 1px solid #161c2e;
+  padding: 12px 20px;
+  border-radius: 25px;
+  box-shadow: 4px 4px 11px 0 #6849b5;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.presentation {
+  color: #ffff;
+  text-align: center;
+  margin: 25px 15%;
+  border-bottom: 1px solid #ffff;
+}
+.presentation h2 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 0 5%;
+}
+.presentation p {
+  font-size: 2rem;
+  margin-top: 25px;
+  margin: 0 5%;
+}
+
+* {
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  outline: none;
+  text-decoration: none;
+  font-family: "lato", sans-serif;
+}
+
+body {
+  background: #6849b5 100%;
+  background: linear-gradient(145deg, #6849b5 0%, rgba(22, 28, 46, 0.9416141457) 30%);
+  margin: 50px;
+}
+
+.readRestaurants {
+  background: #f8f8f6;
+  margin: 2rem 10%;
+  padding: 30px;
+  border-radius: 75px;
+}
+.readRestaurants h3 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.readRestaurants .restaurants {
+  background: #ffff;
+  padding: 25px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.readRestaurants .restaurants .restaurant {
+  border: 1px solid #6849b5;
+  width: 40%;
+  padding: 25px;
+  box-shadow: 4px 4px 11px 0 #6849b5;
+  border-radius: 40px;
+  transition: 0.5s;
+}
+.readRestaurants .restaurants .restaurant figure {
+  font-size: 1.5rem;
+}
+.readRestaurants .restaurants .restaurant figure img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.readRestaurants .restaurants .restaurant:hover {
+  transform: scale(1.05);
+}
+
+/*# sourceMappingURL=style.css.map */

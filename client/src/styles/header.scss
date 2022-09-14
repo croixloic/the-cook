@@ -1,0 +1,64 @@
+@import "./settings.scss";
+
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+
+  .title {
+      h1 {
+          color: $primary-color;
+          border: 1px solid $white-color;
+          border-radius: 50%;
+          background: $white-color;
+          width: 80px;
+          font-size: 1.5rem;
+          padding: 7px;
+          text-align: center;
+        }
+    }
+    .navBar {
+        display: flex;
+        justify-content: space-around;
+    
+    a {
+      color: $white-color;
+      text-decoration: none;
+      font-size: 1.25rem;
+      margin: 0 2.5rem;
+      padding-top: 5px;
+    }
+    .nav-active {
+        border-top: 1px solid $white-color;
+    }
+    button {
+        position: absolute;  //changer pour les autre vesion d'écrant
+        right: 3rem;
+        color: $white-color;
+        background: $primary-color;
+        border: 1px solid $secondary-color;
+        padding: 12px 20px;
+        border-radius: 25px;
+        box-shadow: 4px 4px 11px 0 $primary-color;
+        font-size: 18px;
+        font-weight: bold;
+    }
+  }
+}
+.presentation {
+    color: $white-color;
+    text-align: center;
+    margin: 25px 15%;
+    border-bottom: 1px solid $white-color ;
+    h2 {
+        font-size: 4rem;
+        font-weight: bold;
+        margin: 0 5%;
+    }
+    p {
+        font-size: 2rem;
+        margin-top: 25px;
+        margin: 0 5%;
+    }
+}
