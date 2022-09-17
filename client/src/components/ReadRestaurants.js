@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faXmark, faLocation } from "@fortawesome/free-solid-svg-icons";
+
+
 
 const ReadRestaurants = (props) => {
     
@@ -23,6 +27,14 @@ const ReadRestaurants = (props) => {
         .then((res)=> console.log(res))
         .catch((err) => console.log(err))
     }
+
+    const handleLike = (restaurantId) => {
+    axios.post(`${process.env.REACT_APP_API_URL}/restaurants/restaurants/like/` +restaurantId)
+    .then(()=> handleRead())
+    .catch((err)=>console.log(err))
+    }
+
+    
     return (
         <div className='readRestaurants'>
             <h3>choix des restaurants</h3>
@@ -36,12 +48,20 @@ const ReadRestaurants = (props) => {
                     <br />
                     <p>{element.bio}</p>
                     <br />
-                    <span>{element.localisation}</span>
+                    <span><FontAwesomeIcon icon={faLocation} className="location" />{element.localisation}</span>
+                    <div>
+                        <button className='heartActif'
+                        onClick={() => handleLike(element.id)}
+                        ><FontAwesomeIcon  icon={faHeart} className= "heart"/>
+                        </button>
+                        <span>{element.like}</span>
+                    </div>
                      <div className='btndelete'> 
                     {props.user &&( element.userId === props.user.id || props.user.admin === true)? 
-                    <button
+                    <button 
                     onClick={() => handleDelete(element.id)}
-                    >Supprimer mon restaurant</button>:null}
+                    ><FontAwesomeIcon icon={faXmark} className="marck"/>
+                       <span> Supprimer mon restaurant </span></button>:null}
                     </div> 
                     <div className='redirection'>
                         <Link to={`/restaurants/${element.id}`}>Afficher plus...</Link>

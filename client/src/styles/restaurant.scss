@@ -33,6 +33,31 @@
             height: 200px;
           object-fit: cover;
         }
+        button {
+          border: none;
+          background: $white-color;
+          .heart{
+            color: palevioletred; 
+            font-size: 35px;
+            transition: 1.5s;
+            margin-left: -6px;
+          }
+          .heart:hover {
+            transform: rotate(360deg);
+          }
+          .marck{
+            background: red;
+            color: $white-color;
+            font-size: 15px;
+            padding: 5px;
+            border-radius: 50%;
+            cursor: pointer;
+            
+          }
+          span {
+            font-size: 1.25rem;
+          }
+        }
       }
     }
     .restaurant:hover {

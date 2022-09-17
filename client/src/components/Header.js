@@ -21,7 +21,7 @@ const Header = () => {
 
     useEffect(() => {
         getOneUser();
-    },[])       //le lancer si il y a un token
+    },[])      
     return (
         <div className='header'>
             <div className='title'>
@@ -30,7 +30,7 @@ const Header = () => {
             <nav>
                 <ul className='navBar'>
                     <NavLink to='/' className={(nav) => (nav.isActive ? 'nav-active' : '')}><li>Accueil</li></NavLink>
-                    <NavLink to='/signup' className={(nav) => (nav.isActive ? 'nav-active' : '')}><li>Inscription</li></NavLink>
+                    {!localStorage.token ?<NavLink to='/signup' className={(nav) => (nav.isActive ? 'nav-active' : '')}><li>Inscription</li></NavLink>:null}
                     {iscook === true ? <NavLink to='/restaurant' className={(nav) => (nav.isActive ? 'nav-active' : '')}><li>Mon Restaurant</li></NavLink>:null}
                     {!localStorage.token ? <NavLink to='/login' className= {(nav) => (nav.isActive ? 'nav-active' : '')}><li>Connexion</li></NavLink>
                     :<button onClick={() => { logout()}}>Déconnexion</button>}

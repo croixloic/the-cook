@@ -29,6 +29,10 @@ const FormLogin = () => {
     }
 
     return (
+        <div className='form'>
+
+            <div className='inputsform'>
+                
         <form onSubmit={handlelogin}>
             <label htmlFor='email'>email</label>
             <input 
@@ -39,19 +43,21 @@ const FormLogin = () => {
             value= {email}
             placeholder= "Entrer votre email"
             />
-
+            <br />
             <label htmlFor='password'>Mot de passe </label>
             <input 
             type='password'
             name='password'
-            className='input_login'
+            className='input_signup'
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             placeholder= "Entrer votre mot de passe"
             />
-
+            <br />
             <input type='submit' className='submit' value='Se connecter' />
         </form>
+            </div>
+        </div>
     );
 };
 

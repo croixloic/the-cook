@@ -16,12 +16,13 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    images2: {
-      type:Sequelize.STRING,
-    },
-    images3: {
-      type: Sequelize.STRING,
-    },
+    like: {
+      type: Sequelize.INTEGER,
+      defaultValue: 0,
+  },
+  userlike: {
+      type:Sequelize.TEXT
+  }
   });
   return Restaurant;
 };

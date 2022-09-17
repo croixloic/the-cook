@@ -5,7 +5,7 @@ import Header from '../components/Header';
 const Signup = () => {
     return (
         <>
-           <div className='signup-page'>
+           <div className='soustitre'>
             <Header />
             <h2>Inscription</h2>
             <FormSignup />

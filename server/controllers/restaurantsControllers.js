@@ -30,7 +30,7 @@ exports.createRestaurant = (req, res, next) => {
 
 exports.getAllRestaurants = (req, res, next) => {
     Restaurant.findAll({
-        attributes: ["id","nom", "bio", "localisation", "images", "userId"],})
+        attributes: ["id","nom", "bio", "localisation", "images", "userId", "like", "userlike"],})
         .then((restaurants)=> res.status(200).json(restaurants))
         .catch((err)=> {
             console.log(err);
@@ -81,7 +81,7 @@ exports.modifyRestaurants = (req, res, next) => {
         res.status(400).json({ error: 'Impossible de modifier ce restaurant', error }); 
     }
     })
-    .catch(error => res.status(400).json({ error: 'Impossible de modifier ce post', error }));
+    .catch(error => res.status(400).json({ error: 'Impossible de modifier ce restaurant', error }));
 }
 
 exports.deleteRestaurant = (req, res, next) => {
@@ -97,3 +97,49 @@ exports.deleteRestaurant = (req, res, next) => {
         res.status(500).json({ error })
     });
 }
+
+exports.likeRestaurant = (req, res, next) => {
+    console.log(req.params.id);
+Restaurant.findOne({ where: {id: req.params.id},
+    attributes: ["like", "userlike"]
+})
+.then((restaurant) => {
+     const userlike = (restaurant.userlike && JSON.parse(restaurant.userlike)) || []
+    console.log(userlike);
+    if (!userlike.includes (req.auth.userId)) {
+        userlike.push(req.auth.userId)
+        Restaurant.update ({ like: restaurant.like+1, userlike: JSON.stringify( userlike)},
+            { where: {
+                id: req.params.id
+            }
+        })
+        .then(() => res.status(200).json({message: "Restaurant like"}))
+        .catch((error) =>{
+            console.log(error);
+             res.status(400).json({error})})
+    } 
+    else {
+       const newUserlike = userlike.filter((item) => item!== req.auth.userId)
+        Restaurant.update({like: restaurant.like-1, userlike: newUserlike.length? JSON.stringify(newUserlike): ""},
+            {where: {
+                id: req.params.id
+            }
+        })
+        .then(() => res.status(200).json ({message: "like supprimer"}))
+        .catch((error)=>{
+            console.log(error);
+            res.status(400).json({ error }) })
+    }
+}) 
+.catch((error) =>{
+    console.log(error);
+    res.status(404).json({ error }) }) 
+};
+
+    exports.allLike = (req, res, next) => {
+        Restaurant.findAll({
+            attributes: ["like"],})
+        .then((like) => res.status(200).json(like))
+        .catch((error) => res.status(400).json({ error }))
+    }
+

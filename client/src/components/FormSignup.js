@@ -35,6 +35,10 @@ const FormSignup = () => {
     }
   };
   return (
+      <div className="form">
+        <div className="inputsform">
+
+
     <form onSubmit={handleSignup}>
       <label htmlFor="pseudo">Pseudo</label>
       <input
@@ -64,23 +68,27 @@ const FormSignup = () => {
         onChange={(e) => setPassword(e.target.value)}
         value={password}
         placeholder="mot de passe"
-      />
+        />
       {/* <div className="password error">
         <span>{error}</span>
       </div> */}
       <br/>
-
+      <div className="checkbox">
       <label htmlFor="cook">Restaurateur</label>
       <input 
       type="checkbox"
       name="cook"
-      className="input_signup"
+      className="box"
       onChange={(e) => setCook(true)}
       value={cook}
       />
       <span>cocher si vous étes un restaurateur</span>
+      </div>
+      <br/>
       <input type="submit" className="submit"  value="S'inscrire"/>
     </form>
+      </div>
+      </div>
   );
 };
 
